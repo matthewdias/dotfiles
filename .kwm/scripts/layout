@@ -1,5 +1,0 @@
-# save/restore layout for current space
-# eg. "layout save"
-kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
-space=$($kwmc query space active)
-$kwmc tree $1 $space
