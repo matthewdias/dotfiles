@@ -1,6 +1,10 @@
-# Hyper key
+# Variables
 define hyper cmd+alt+ctrl
-define stubborn {Simplenote,Preview,TextEdit,Microsoft Word}
+define layout /Users/Matthew/.kwm/scripts/layout
+define move /Users/Matthew/.kwm/scripts/move
+define pull /Users/Matthew/.kwm/scripts/pull
+define resizemode /Users/Matthew/.kwm/scripts/resizemode
+define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,Activity Monitor}
 
 # Manage kwm
 kwmc bindsym hyper-q quit
@@ -11,7 +15,7 @@ kwmc bindsym hyper-k exec subl -n /Users/Matthew/.kwm
 # Launcher
 kwmc bindsym hyper-return exec open -a Terminal /Users/Matthew
 kwmc bindsym hyper-t exec osascript /Users/Matthew/Dropbox/Development/osx/applescripts/sublime_new.applescript
-kwmc bindsym hyper-c exec /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+kwmc bindsym hyper-c exec osascript /Users/Matthew/Dropbox/Development/osx/applescripts/chrome_new.applescript
 kwmc bindsym hyper-o exec osascript /Users/Matthew/Dropbox/Development/osx/applescripts/finder_new.applescript
 kwmc bindsym hyper+shift-p exec osascript /Users/Matthew/Dropbox/Development/osx/applescripts/pomodoro.applescript
 kwmc bindsym hyper-z exec subl -n /Users/Matthew/.zshrc
@@ -44,15 +48,15 @@ kwmc mode resizeeast color FFC78EEB
 kwmc mode resizewest prefix off
 kwmc mode resizewest color FFC78EEB
 
-kwmc bindsym cmd+ctrl-up exec /Users/Matthew/.kwm/scripts/resize north on
-kwmc bindsym cmd+ctrl-down exec /Users/Matthew/.kwm/scripts/resize south on
-kwmc bindsym cmd+ctrl-right exec /Users/Matthew/.kwm/scripts/resize east on
-kwmc bindsym cmd+ctrl-left exec /Users/Matthew/.kwm/scripts/resize west on
+kwmc bindsym cmd+ctrl-up exec resizemode north on
+kwmc bindsym cmd+ctrl-down exec resizemode south on
+kwmc bindsym cmd+ctrl-right exec resizemode east on
+kwmc bindsym cmd+ctrl-left exec resizemode west on
 
-kwmc bindsym resizenorth-escape exec /Users/Matthew/.kwm/scripts/resize north off
-kwmc bindsym resizesouth-escape exec /Users/Matthew/.kwm/scripts/resize south off
-kwmc bindsym resizeeast-escape exec /Users/Matthew/.kwm/scripts/resize east off
-kwmc bindsym resizewest-escape exec /Users/Matthew/.kwm/scripts/resize west off
+kwmc bindsym resizenorth-escape exec resizemode north off
+kwmc bindsym resizesouth-escape exec resizemode south off
+kwmc bindsym resizeeast-escape exec resizemode east off
+kwmc bindsym resizewest-escape exec resizemode west off
 
 kwmc bindsym resizenorth-. window -c expand 0.05 north
 kwmc bindsym resizenorth-, window -c reduce 0.05 north
@@ -92,14 +96,14 @@ kwmc bindsym hyper+shift-up window -s north
 kwmc bindsym hyper+shift-right window -s east
 
 # Move window to container in direction
-kwmc bindsym cmd+alt-up exec /Users/Matthew/.kwm/scripts/move north
-kwmc bindsym cmd+alt-right exec /Users/Matthew/.kwm/scripts/move east
-kwmc bindsym cmd+alt-down exec /Users/Matthew/.kwm/scripts/move south
-kwmc bindsym cmd+alt-left exec /Users/Matthew/.kwm/scripts/move west
+kwmc bindsym cmd+alt-up exec move north
+kwmc bindsym cmd+alt-right exec move east
+kwmc bindsym cmd+alt-down exec move south
+kwmc bindsym cmd+alt-left exec move west
 
 # Manage layouts
-kwmc bindsym hyper+shift-l exec /Users/Matthew/.kwm/scripts/layout save
-kwmc bindsym hyper-l exec /Users/Matthew/.kwm/scripts/layout restore
+kwmc bindsym hyper+shift-l exec layout save
+kwmc bindsym hyper-l exec layout restore
 
 # Move Focused window between spaces (don't follow)
 kwmc bindsym hyper+shift-tab window -m space previous
@@ -115,19 +119,19 @@ kwmc bindsym hyper+shift-9 window -m space 9
 kwmc bindsym hyper+shift-0 window -m space 10
 
 # Move Focused window between spaces (follow)
-kwmc bindsym cmd+alt+shift-left exec /Users/Matthew/.kwm/scripts/pull left
-kwmc bindsym cmd+alt+shift-right exec /Users/Matthew/.kwm/scripts/pull right
-kwmc bindsym cmd+alt+shift-tab exec /Users/Matthew/.kwm/scripts/pull previous
-kwmc bindsym cmd+alt+shift-1 exec /Users/Matthew/.kwm/scripts/pull 1
-kwmc bindsym cmd+alt+shift-2 exec /Users/Matthew/.kwm/scripts/pull 2
-kwmc bindsym cmd+alt+shift-3 exec /Users/Matthew/.kwm/scripts/pull 3
-kwmc bindsym cmd+alt+shift-4 exec /Users/Matthew/.kwm/scripts/pull 4
-kwmc bindsym cmd+alt+shift-5 exec /Users/Matthew/.kwm/scripts/pull 5
-kwmc bindsym cmd+alt+shift-6 exec /Users/Matthew/.kwm/scripts/pull 6
-kwmc bindsym cmd+alt+shift-7 exec /Users/Matthew/.kwm/scripts/pull 7
-kwmc bindsym cmd+alt+shift-8 exec /Users/Matthew/.kwm/scripts/pull 8
-kwmc bindsym cmd+alt+shift-9 exec /Users/Matthew/.kwm/scripts/pull 9
-kwmc bindsym cmd+alt+shift-0 exec /Users/Matthew/.kwm/scripts/pull 0
+kwmc bindsym cmd+alt+shift-left exec pull left
+kwmc bindsym cmd+alt+shift-right exec pull right
+kwmc bindsym cmd+alt+shift-tab exec pull previous
+kwmc bindsym cmd+alt+shift-1 exec pull 1
+kwmc bindsym cmd+alt+shift-2 exec pull 2
+kwmc bindsym cmd+alt+shift-3 exec pull 3
+kwmc bindsym cmd+alt+shift-4 exec pull 4
+kwmc bindsym cmd+alt+shift-5 exec pull 5
+kwmc bindsym cmd+alt+shift-6 exec pull 6
+kwmc bindsym cmd+alt+shift-7 exec pull 7
+kwmc bindsym cmd+alt+shift-8 exec pull 8
+kwmc bindsym cmd+alt+shift-9 exec pull 9
+kwmc bindsym cmd+alt+shift-0 exec pull 0
 
 # Space switching
 kwmc bindsym hyper-tab space -f previous
@@ -158,16 +162,16 @@ kwmc bindsym hyper-0 space -f 0
 # kwmc bindsym hyper-0 space -fExperimental 10
 
 # Move Focused window between spaces (follow experimental)
-# kwmc bindsym cmd+alt+shift-left exec /Users/Matthew/.kwm/scripts/pull -e left
-# kwmc bindsym cmd+alt+shift-right exec /Users/Matthew/.kwm/scripts/pull -e right
-# kwmc bindsym cmd+alt+shift-tab exec /Users/Matthew/.kwm/scripts/pull -e previous
-# kwmc bindsym cmd+alt+shift-1 exec /Users/Matthew/.kwm/scripts/pull -e 1
-# kwmc bindsym cmd+alt+shift-2 exec /Users/Matthew/.kwm/scripts/pull -e 2
-# kwmc bindsym cmd+alt+shift-3 exec /Users/Matthew/.kwm/scripts/pull -e 3
-# kwmc bindsym cmd+alt+shift-4 exec /Users/Matthew/.kwm/scripts/pull -e 4
-# kwmc bindsym cmd+alt+shift-5 exec /Users/Matthew/.kwm/scripts/pull -e 5
-# kwmc bindsym cmd+alt+shift-6 exec /Users/Matthew/.kwm/scripts/pull -e 6
-# kwmc bindsym cmd+alt+shift-7 exec /Users/Matthew/.kwm/scripts/pull -e 7
-# kwmc bindsym cmd+alt+shift-8 exec /Users/Matthew/.kwm/scripts/pull -e 8
-# kwmc bindsym cmd+alt+shift-9 exec /Users/Matthew/.kwm/scripts/pull -e 9
-# kwmc bindsym cmd+alt+shift-0 exec /Users/Matthew/.kwm/scripts/pull -e 10
+# kwmc bindsym cmd+alt+shift-left exec pull -e left
+# kwmc bindsym cmd+alt+shift-right exec pull -e right
+# kwmc bindsym cmd+alt+shift-tab exec pull -e previous
+# kwmc bindsym cmd+alt+shift-1 exec pull -e 1
+# kwmc bindsym cmd+alt+shift-2 exec pull -e 2
+# kwmc bindsym cmd+alt+shift-3 exec pull -e 3
+# kwmc bindsym cmd+alt+shift-4 exec pull -e 4
+# kwmc bindsym cmd+alt+shift-5 exec pull -e 5
+# kwmc bindsym cmd+alt+shift-6 exec pull -e 6
+# kwmc bindsym cmd+alt+shift-7 exec pull -e 7
+# kwmc bindsym cmd+alt+shift-8 exec pull -e 8
+# kwmc bindsym cmd+alt+shift-9 exec pull -e 9
+# kwmc bindsym cmd+alt+shift-0 exec pull -e 10
