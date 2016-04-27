@@ -1,0 +1,173 @@
+# Hyper key
+define hyper cmd+alt+ctrl
+define stubborn {Simplenote,Preview,TextEdit,Microsoft Word}
+
+# Manage kwm
+kwmc bindsym hyper-q quit
+kwmc bindsym hyper+shift-r config reload
+kwmc bindsym hyper-e space -r focused
+kwmc bindsym hyper-k sys subl -n ~/.kwm
+
+# Launcher
+kwmc bindsym hyper-return sys open -a Terminal ~
+kwmc bindsym hyper-t sys osascript ~/Dropbox/Development/osx/applescripts/sublime_new.applescript
+kwmc bindsym hyper-c sys /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome
+kwmc bindsym hyper-o sys osascript ~/Dropbox/Development/osx/applescripts/finder_new.applescript
+kwmc bindsym hyper+shift-p sys osascript ~/Dropbox/Development/osx/applescripts/pomodoro.applescript
+kwmc bindsym hyper-z sys subl -n ~/.zshrc
+
+# Quit stubborn apps
+kwmc bindsym-passthrough cmd-w press cmd+alt-q stubborn -i
+
+# Tiling mode
+kwmc bindsym hyper-b space -t bsp
+kwmc bindsym hyper-f space -t monocle
+kwmc bindsym hyper-d space -t float
+
+# Toggle node mode
+kwmc bindsym hyper-v window -c type toggle
+
+# Rotate Window-Tree By 90* (Clockwise)
+kwmc bindsym hyper-r tree rotate 90
+
+# Resize modes
+kwmc bindsym hyper-s window -c split-mode toggle
+kwmc bindsym hyper-, window -c reduce 0.05
+kwmc bindsym hyper-. window -c expand 0.05
+
+kwmc mode resizenorth prefix off
+kwmc mode resizenorth color FFC78EEB
+kwmc mode resizesouth prefix off
+kwmc mode resizesouth color FFC78EEB
+kwmc mode resizeeast prefix off
+kwmc mode resizeeast color FFC78EEB
+kwmc mode resizewest prefix off
+kwmc mode resizewest color FFC78EEB
+
+kwmc bindsym cmd+ctrl-up sys ~/.kwm/scripts/resize north on
+kwmc bindsym cmd+ctrl-down sys ~/.kwm/scripts/resize south on
+kwmc bindsym cmd+ctrl-right sys ~/.kwm/scripts/resize east on
+kwmc bindsym cmd+ctrl-left sys ~/.kwm/scripts/resize west on
+
+kwmc bindsym resizenorth-escape sys ~/.kwm/scripts/resize north off
+kwmc bindsym resizesouth-escape sys ~/.kwm/scripts/resize south off
+kwmc bindsym resizeeast-escape sys ~/.kwm/scripts/resize east off
+kwmc bindsym resizewest-escape sys ~/.kwm/scripts/resize west off
+
+kwmc bindsym resizenorth-. window -c expand 0.05 north
+kwmc bindsym resizenorth-, window -c reduce 0.05 north
+kwmc bindsym resizesouth-. window -c expand 0.05 south
+kwmc bindsym resizesouth-, window -c reduce 0.05 south
+kwmc bindsym resizeeast-. window -c expand 0.05 east
+kwmc bindsym resizeeast-, window -c reduce 0.05 east
+kwmc bindsym resizewest-. window -c expand 0.05 west
+kwmc bindsym resizewest-, window -c reduce 0.05 west
+
+# Set zoom
+kwmc bindsym hyper-x window -z fullscreen
+kwmc bindsym hyper-p window -z parent
+kwmc bindsym hyper-w window -t focused
+
+# Mark Window
+kwmc bindsym hyper-m window -mk focused
+
+# Pseudo nodes
+kwmc bindsym hyper-y tree -pseudo create
+kwmc bindsym hyper+shift-y tree -pseudo destroy
+
+# Give Focus To Window
+kwmc bindsym hyper-left window -f west
+kwmc bindsym hyper-right window -f east
+kwmc bindsym hyper-down window -f south
+kwmc bindsym hyper-up window -f north
+
+# Focus next/previous monocle sub-tree
+kwmc bindsym cmd+ctrl-tab window -fm next
+kwmc bindsym cmd+ctrl+shift-tab window -fm prev
+
+# Swap Focused Window in direction
+kwmc bindsym hyper+shift-left window -s west
+kwmc bindsym hyper+shift-down window -s south
+kwmc bindsym hyper+shift-up window -s north
+kwmc bindsym hyper+shift-right window -s east
+
+# Move window to container in direction
+kwmc bindsym cmd+alt-up sys ~/.kwm/scripts/move north
+kwmc bindsym cmd+alt-right sys ~/.kwm/scripts/move east
+kwmc bindsym cmd+alt-down sys ~/.kwm/scripts/move south
+kwmc bindsym cmd+alt-left sys ~/.kwm/scripts/move west
+
+# Manage layouts
+kwmc bindsym hyper+shift-l sys ~/.kwm/scripts/layout save
+kwmc bindsym hyper-l sys ~/.kwm/scripts/layout restore
+
+# Move Focused window between spaces (don't follow)
+kwmc bindsym hyper+shift-tab window -m space previous
+kwmc bindsym hyper+shift-1 window -m space 1
+kwmc bindsym hyper+shift-2 window -m space 2
+kwmc bindsym hyper+shift-3 window -m space 3
+kwmc bindsym hyper+shift-4 window -m space 4
+kwmc bindsym hyper+shift-5 window -m space 5
+kwmc bindsym hyper+shift-6 window -m space 6
+kwmc bindsym hyper+shift-7 window -m space 7
+kwmc bindsym hyper+shift-8 window -m space 8
+kwmc bindsym hyper+shift-9 window -m space 9
+kwmc bindsym hyper+shift-0 window -m space 10
+
+# Move Focused window between spaces (follow)
+kwmc bindsym cmd+alt+shift-left sys ~/.kwm/scripts/pull left
+kwmc bindsym cmd+alt+shift-right sys ~/.kwm/scripts/pull right
+kwmc bindsym cmd+alt+shift-tab sys ~/.kwm/scripts/pull previous
+kwmc bindsym cmd+alt+shift-1 sys ~/.kwm/scripts/pull 1
+kwmc bindsym cmd+alt+shift-2 sys ~/.kwm/scripts/pull 2
+kwmc bindsym cmd+alt+shift-3 sys ~/.kwm/scripts/pull 3
+kwmc bindsym cmd+alt+shift-4 sys ~/.kwm/scripts/pull 4
+kwmc bindsym cmd+alt+shift-5 sys ~/.kwm/scripts/pull 5
+kwmc bindsym cmd+alt+shift-6 sys ~/.kwm/scripts/pull 6
+kwmc bindsym cmd+alt+shift-7 sys ~/.kwm/scripts/pull 7
+kwmc bindsym cmd+alt+shift-8 sys ~/.kwm/scripts/pull 8
+kwmc bindsym cmd+alt+shift-9 sys ~/.kwm/scripts/pull 9
+kwmc bindsym cmd+alt+shift-0 sys ~/.kwm/scripts/pull 0
+
+# Space switching
+kwmc bindsym hyper-tab space -f previous
+kwmc bindsym hyper-1 space -f 1
+kwmc bindsym hyper-2 space -f 2
+kwmc bindsym hyper-3 space -f 3
+kwmc bindsym hyper-4 space -f 4
+kwmc bindsym hyper-5 space -f 5
+kwmc bindsym hyper-6 space -f 6
+kwmc bindsym hyper-7 space -f 7
+kwmc bindsym hyper-8 space -f 8
+kwmc bindsym hyper-9 space -f 9
+kwmc bindsym hyper-0 space -f 0
+
+# Experimental space switching
+# kwmc bindsym ctrl+shift-left space -fExperimental left
+# kwmc bindsym ctrl+shift-right space -fExperimental right
+# kwmc bindsym hyper-tab space -fExperimental previous
+# kwmc bindsym hyper-1 space -fExperimental 1
+# kwmc bindsym hyper-2 space -fExperimental 2
+# kwmc bindsym hyper-3 space -fExperimental 3
+# kwmc bindsym hyper-4 space -fExperimental 4
+# kwmc bindsym hyper-5 space -fExperimental 5
+# kwmc bindsym hyper-6 space -fExperimental 6
+# kwmc bindsym hyper-7 space -fExperimental 7
+# kwmc bindsym hyper-8 space -fExperimental 8
+# kwmc bindsym hyper-9 space -fExperimental 9
+# kwmc bindsym hyper-0 space -fExperimental 10
+
+# Move Focused window between spaces (follow experimental)
+# kwmc bindsym cmd+alt+shift-left sys ~/.kwm/scripts/pull -e left
+# kwmc bindsym cmd+alt+shift-right sys ~/.kwm/scripts/pull -e right
+# kwmc bindsym cmd+alt+shift-tab sys ~/.kwm/scripts/pull -e previous
+# kwmc bindsym cmd+alt+shift-1 sys ~/.kwm/scripts/pull -e 1
+# kwmc bindsym cmd+alt+shift-2 sys ~/.kwm/scripts/pull -e 2
+# kwmc bindsym cmd+alt+shift-3 sys ~/.kwm/scripts/pull -e 3
+# kwmc bindsym cmd+alt+shift-4 sys ~/.kwm/scripts/pull -e 4
+# kwmc bindsym cmd+alt+shift-5 sys ~/.kwm/scripts/pull -e 5
+# kwmc bindsym cmd+alt+shift-6 sys ~/.kwm/scripts/pull -e 6
+# kwmc bindsym cmd+alt+shift-7 sys ~/.kwm/scripts/pull -e 7
+# kwmc bindsym cmd+alt+shift-8 sys ~/.kwm/scripts/pull -e 8
+# kwmc bindsym cmd+alt+shift-9 sys ~/.kwm/scripts/pull -e 9
+# kwmc bindsym cmd+alt+shift-0 sys ~/.kwm/scripts/pull -e 10

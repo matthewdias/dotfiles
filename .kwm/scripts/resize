@@ -1,0 +1,12 @@
+# toggle resize mode for direction
+# eg. "resize north on"
+kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
+DIR=$1
+STATE=$2
+$kwmc window -mk "$DIR"
+if [ "$STATE" = "on" ]
+	then
+	$kwmc mode activate resize"$DIR"
+else
+	$kwmc mode activate default
+fi
