@@ -1,0 +1,23 @@
+kwmc config padding 80 60 60 60
+kwmc config gap 20 20
+kwmc config split-ratio 0.5
+kwmc config spawn right
+kwmc config lock-to-container on
+kwmc config tiling bsp
+kwmc config space bsp
+kwmc config hotkeys on
+kwmc config spaces-key ctrl
+kwmc config float-non-resizable on
+kwmc config focus-follows-mouse off
+kwmc config mouse-follows-focus off
+kwmc config cycle-focus screen
+
+kwmc config focused-border on
+kwmc config focused-border size 3
+kwmc config focused-border color FF7DCBC4
+kwmc config marked-border on
+kwmc config marked-border size 3
+kwmc config marked-border color FFC2E989
+
+include rules
+include binds
