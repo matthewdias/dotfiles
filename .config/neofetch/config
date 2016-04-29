@@ -11,9 +11,6 @@ printinfo () {
     info linebreak
     info linebreak
     info linebreak
-    info linebreak
-    info linebreak
-    info linebreak
 
     prin "$(color 6)OS: $(color 7)OS X"
     info "Shell" shell

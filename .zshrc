@@ -24,8 +24,7 @@ alias s="subl"
 alias sn="subl -n"
 alias dus="duf | sort -n"
 alias sz="source ~/.zshrc"
-alias ..="cd .."
-alias ...="cd ..."
+alias d="dirs -v"
 alias -g S="| subl -"
 trash() {
 	mv $1 ~/.Trash/
