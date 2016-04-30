@@ -1,5 +1,4 @@
-
-kwmc config add-role AXDialog iTerm2
+kwmc rule properties={role="AXDialog"} owner="iTerm2"
 
 kwmc rule properties={float="true"} owner="App Store"
 kwmc rule properties={float="true"} owner="System Preferences"
@@ -26,7 +25,7 @@ kwmc rule properties={space="4"} owner="Slack"
 kwmc rule properties={space="4"} owner="Goofy"
 kwmc rule properties={space="4"} owner="Chatty"
 kwmc rule properties={space="4"} owner="Messenger"
-kwmc rule properties={space="5"} owner="Plex"
+# kwmc rule properties={space="5"} owner="Plex"
 kwmc rule properties={space="5"} owner="Radiant Player"
 kwmc rule properties={space="2"} owner="Pocket Casts"
 kwmc rule properties={space="2"} owner="YouTube"

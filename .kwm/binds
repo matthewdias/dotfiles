@@ -4,7 +4,7 @@ define layout /Users/Matthew/.kwm/scripts/layout
 define move /Users/Matthew/.kwm/scripts/move
 define pull /Users/Matthew/.kwm/scripts/pull
 define resizemode /Users/Matthew/.kwm/scripts/resizemode
-define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,Activity Monitor,MindNode}
+define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit}
 
 # Manage kwm
 kwmc bindsym hyper-q quit

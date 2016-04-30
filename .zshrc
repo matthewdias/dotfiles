@@ -46,4 +46,4 @@ export PATH="/Users/Matthew/Documents/adt-bundle-mac-x86_64-20140702/sdk/platfor
 export PATH="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:$PATH"
 
 export GITHUB_USER="matthewdias"
-PROJECT_PATHS=(~/Dropbox/Development/osx ~/Dropbox/Development/ios ~/Dropbox/Development/web ~/Dropbox/Development/android ~/Dropbox/Development/chrome ~/Dropbox/Development/electron ~/Dropbox/Development/latertube)
+PROJECT_PATHS=(~/Dropbox/Development/osx ~/Dropbox/Development/ios ~/Dropbox/Development/web ~/Dropbox/Development/android ~/Dropbox/Development/chrome ~/Dropbox/Development/electron ~/Dropbox/Development/web/latertube)
