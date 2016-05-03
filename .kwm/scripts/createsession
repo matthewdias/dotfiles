@@ -1,0 +1,138 @@
+# create a session config
+
+# defaults
+kwmc=/usr/local/bin/kwmc
+dir=$HOME
+e=$EDITOR
+terminal="Terminal"
+space=$($kwmc query space active id)
+save=$HOME"/.kwm/sessions/"
+
+# args
+while [[ $# > 0 ]]
+do
+key="$1"
+case $key in
+	-w|--workspace)
+    space="$2"
+    shift
+    ;;
+    -d|--dir)
+    dir="$2"
+    shift
+    ;;
+    -T|--defterm)
+	terminal="$2"
+	shift
+	;;
+	-k|--kwmc)
+	kwmc="$2"
+	shift
+	;;
+	-s|--save)
+	save="$2"
+	shift
+	;;
+    -a|--app)
+    apps+=("$2")
+    shift
+    ;;
+    -f|--file)
+    files+=("$2")
+    shift
+    ;;
+    -u|--url)
+	urls+=("$2")
+	shift
+	;;
+	-t|--terminal)
+	terms+=("$2")
+	shift
+	;;
+	-e|--editor)
+	editors+=("$2")
+	shift
+	;;
+	-c|--command)
+	commands+=("$2")
+	shift
+	;;
+    -h|--help)
+    help=true
+    shift
+    ;;
+    *)
+    name="$1"
+    ;;
+esac
+shift
+done
+
+# show help
+if [[ -z "$name" ]] || [[ $help == true ]]
+then
+cat << EOF
+
+    usage: createsession --option "value" --option "value" sessionname(required)
+
+    Options:
+
+    Define once:
+    -w|--workspace 	<integer>	Space id for session (default: active space)
+    -d|--dir 		<path>		Working directory (default: $HOME)
+    -T|--defterm	<app name>	Set terminal app to use (default: Terminal)
+    -k|--kwmc		<path>		path/to/kwmc (default: /usr/local/bin/kwmc)
+    -s|--save		<path>		Path for session config (default: $HOME/.kwm/sessions/)
+
+    Multiple allowed (eg. -a "App" -a "App"):
+    -a|--app 		<app name>	Specify an app to open
+    -f|--file 		<path>		Open file/folder with default app
+    -u|--url		<url>		Open url in default browser
+    -t|--terminal	<dir path>	Open terminal at directory
+    -e|--editor		<path>		Open file/folder with $EDITOR
+    -c|--command	<command>
+
+    Other:
+    -h|--help		none		Display this text and exit
+
+EOF
+exit 1
+fi
+
+# create session config
+savefile=$save$name
+> $savefile
+
+echo "space $space" >> $savefile
+echo "dir $dir" >> $savefile
+echo "terminal $terminal" >> $savefile
+
+for app in $apps
+do
+	echo "app $app" >> $savefile
+done
+
+for file in $files
+do
+	echo "file $file" >> $savefile
+done
+
+for url in $urls
+do
+	echo "url $url" >> $savefile
+done
+
+for term in $terms
+do
+	echo "term $term" >> $savefile
+done
+
+for editor in $editors
+do
+	echo "editor $editor" >> $savefile
+done
+
+for command in $commands
+do
+	echo "command $command" >> $savefile
+done
