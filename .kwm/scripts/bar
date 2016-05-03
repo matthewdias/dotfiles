@@ -1,10 +1,11 @@
 # Display spaces using in a bar that accepts stdout
 kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
 
-# get active space
+# get active and previous space
 active=$($kwmc query space active id)
 previous=$($kwmc query space previous id)
 
+# get array of spaces
 spaces=()
 i=0
 while read -r line
@@ -13,6 +14,7 @@ do
     (( i++ ))
 done <<< "$($kwmc query space list)"
 
+# populate bar with icons
 bar=()
 for (( i = 0; i < ${#spaces[@]}; i++ ))
 do
@@ -35,6 +37,8 @@ do
 		bar[$i]=$(($i+1))
 	fi
 done
+
+# style active and previous space icons
 bbar=()
 for (( i = 0; i < ${#bar[@]}; i++ ))
 do
