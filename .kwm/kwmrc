@@ -12,6 +12,17 @@ kwmc config focus-follows-mouse off
 kwmc config mouse-follows-focus off
 kwmc config cycle-focus screen
 
+kwmc config space 0 1 tree 1
+kwmc config space 0 1 name chrome
+kwmc config space 0 2 tree 2
+kwmc config space 0 2 name news
+kwmc config space 0 3 tree 3
+kwmc config space 0 3 name tasks
+kwmc config space 0 4 tree 4
+kwmc config space 0 4 name messages
+kwmc config space 0 5 tree 5
+kwmc config space 0 5 name media
+
 kwmc config focused-border on
 kwmc config focused-border size 3
 kwmc config focused-border color FF7DCBC4

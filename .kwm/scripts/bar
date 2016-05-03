@@ -1,0 +1,52 @@
+# Display spaces using in a bar that accepts stdout
+kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
+
+# get active space
+active=$($kwmc query space active id)
+previous=$($kwmc query space previous id)
+
+spaces=()
+i=0
+while read -r line
+do
+    spaces[i]="$line"
+    (( i++ ))
+done <<< "$($kwmc query space list)"
+
+bar=()
+for (( i = 0; i < ${#spaces[@]}; i++ ))
+do
+	if [[ ${spaces[$i]} == *"chrome" ]]
+	then
+		bar[$i]='@'
+	elif [[ ${spaces[$i]} == *"news" ]]
+	then
+		bar[$i]='★'
+	elif [[ ${spaces[$i]} == *"tasks" ]]
+	then
+		bar[$i]='✔'
+	elif [[ ${spaces[$i]} == *"messages" ]]
+	then
+		bar[$i]='#'
+	elif [[ ${spaces[$i]} == *"media" ]]
+	then
+		bar[$i]='♫'
+	else
+		bar[$i]=$(($i+1))
+	fi
+done
+bbar=()
+for (( i = 0; i < ${#bar[@]}; i++ ))
+do
+	if [[ $(($i+1)) == "$active" ]]
+	then
+		bbar[(($i*3+1))]="["${bar[$i]}"]"
+		# bbar[(($i*3+1))]="\e[30;47m"${bar[$i]}"\e[39;49m"
+	elif [[ $(($i+1)) == "$previous" ]]
+	then
+		bbar[(($i*3+1))]="("${bar[$i]}")"
+	else
+		bbar[(($i*3+1))]=${bar[$i]}
+	fi
+done
+echo "${bbar[*]}"
