@@ -62,6 +62,5 @@ do
 		bbar[(($i*3+1))]=" ${bar[$i]} "
 	fi
 done
-# spacing
-bbar+=("                                                                                                      ")
-echo "${bbar[*]}"
+
+echo "$($kwmc query space active tag | sed 's/ .*//')   ${bbar[*]}"

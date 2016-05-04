@@ -1,4 +1,4 @@
-kwmc config padding 80 60 60 60
+kwmc config padding 80 80 60 60
 kwmc config gap 20 20
 kwmc config split-ratio 0.5
 kwmc config spawn right

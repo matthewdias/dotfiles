@@ -1,3 +1,0 @@
-# Display current split mode for active space
-kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
-echo $($kwmc query space active tag | sed 's/ .*//')
