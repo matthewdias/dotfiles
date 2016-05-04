@@ -1,0 +1,49 @@
+# open a session config
+if [[ "$1" == "-h" ]] || [[ "$1" == "--help" ]]
+then
+    help=true
+else
+    name="$1"
+fi
+
+# show help
+if [[ -z "$name" ]]
+then
+    echo usage: opensession name
+    exit 1
+fi
+
+kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
+$kwmc space -n $name
+$kwmc tree restore $name
+savefile=/Users/Matthew/.kwm/sessions/$name
+
+while read -r line
+do
+    action=($line)
+    key=${action[0]}
+    value=${action[@]:1}
+    case $key in
+        dir)
+        dir="$value"
+        ;;
+        terminal)
+        terminal="$value"
+        ;;
+        app)
+        ~/.kwm/scripts/openapp "$value"
+        ;;
+        file|url)
+        open "$value"
+        ;;
+        term)
+        open -a "$terminal" "$value"
+        ;;
+        editor)
+        $EDITOR "$value"
+        ;;
+        command)
+        eval "$value"
+        ;;
+    esac
+done < "$savefile"

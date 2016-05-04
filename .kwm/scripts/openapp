@@ -1,0 +1,12 @@
+# open app
+app="$@"
+
+if [[ $app == *"Google Chrome" ]]
+then
+	open -na "$app"
+elif [[ $app == *"Sublime Text" ]]
+then
+	subl -n
+else
+	open -a "$app"
+fi

@@ -1,72 +1,47 @@
 # create a session config
 
 # defaults
-kwmc=/usr/local/bin/kwmc
+kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
 dir=$HOME
-e=$EDITOR
 terminal="Terminal"
-space=$($kwmc query space active id)
 save=$HOME"/.kwm/sessions/"
 
 # args
-while [[ $# > 0 ]]
+while getopts ":d:T:a:f:u:t:e:c:h" opt
 do
-key="$1"
-case $key in
-	-w|--workspace)
-    space="$2"
-    shift
+case $opt in
+    d)
+    dir="$OPTARG"
     ;;
-    -d|--dir)
-    dir="$2"
-    shift
+    T)
+	terminal="$OPTARG"
+	;;
+    a)
+    apps+=("$OPTARG")
     ;;
-    -T|--defterm)
-	terminal="$2"
-	shift
-	;;
-	-k|--kwmc)
-	kwmc="$2"
-	shift
-	;;
-	-s|--save)
-	save="$2"
-	shift
-	;;
-    -a|--app)
-    apps+=("$2")
-    shift
+    f)
+    files+=("$OPTARG")
     ;;
-    -f|--file)
-    files+=("$2")
-    shift
-    ;;
-    -u|--url)
-	urls+=("$2")
-	shift
+    u)
+	urls+=("$OPTARG")
 	;;
-	-t|--terminal)
-	terms+=("$2")
-	shift
+	t)
+	terms+=("$OPTARG")
 	;;
-	-e|--editor)
-	editors+=("$2")
-	shift
+	e)
+	editors+=("$OPTARG")
 	;;
-	-c|--command)
-	commands+=("$2")
-	shift
+	c)
+	commands+=("$OPTARG")
 	;;
-    -h|--help)
+    h)
     help=true
-    shift
-    ;;
-    *)
-    name="$1"
     ;;
 esac
-shift
 done
+
+shift $((OPTIND-1))
+name="$1"
 
 # show help
 if [[ -z "$name" ]] || [[ $help == true ]]
@@ -78,22 +53,21 @@ cat << EOF
     Options:
 
     Define once:
-    -w|--workspace 	<integer>	Space id for session (default: active space)
-    -d|--dir 		<path>		Working directory (default: $HOME)
-    -T|--defterm	<app name>	Set terminal app to use (default: Terminal)
-    -k|--kwmc		<path>		path/to/kwmc (default: /usr/local/bin/kwmc)
-    -s|--save		<path>		Path for session config (default: $HOME/.kwm/sessions/)
+    -d	<path>		Working directory (default: $HOME)
+    -T	<app name>	Set terminal app to use (default: Terminal)
 
-    Multiple allowed (eg. -a "App" -a "App"):
-    -a|--app 		<app name>	Specify an app to open
-    -f|--file 		<path>		Open file/folder with default app
-    -u|--url		<url>		Open url in default browser
-    -t|--terminal	<dir path>	Open terminal at directory
-    -e|--editor		<path>		Open file/folder with $EDITOR
-    -c|--command	<command>
+    Multiple allowed:
+    (eg. -a "App" -a "App")
+    (pass 'dir' for paths to indicate working dir.)
+    -a	<app name>	Specify an app to open
+    -f	<path>		Open file/folder with default app
+    -u	<url>		Open url in default browser
+    -t	<path>		Open terminal at directory
+    -e	<path>		Open file/folder with $EDITOR
+    -c	<command>	Run commands on session start.
 
     Other:
-    -h|--help		none		Display this text and exit
+    -h 	none		Display this text and exit
 
 EOF
 exit 1
@@ -103,36 +77,47 @@ fi
 savefile=$save$name
 > $savefile
 
-echo "space $space" >> $savefile
 echo "dir $dir" >> $savefile
 echo "terminal $terminal" >> $savefile
 
-for app in $apps
+for ((i = 0; i < ${#apps[@]}; i++))
 do
-	echo "app $app" >> $savefile
+	echo "app ${apps[$i]}" >> $savefile
 done
 
-for file in $files
+for ((i = 0; i < ${#files[@]}; i++))
 do
-	echo "file $file" >> $savefile
+	if [[ "${files[$i]}" == "dir" ]]
+	then
+		files[$i]="$dir"
+	fi
+	echo "file ${files[$i]}" >> $savefile
 done
 
-for url in $urls
+for ((i = 0; i < ${#urls[@]}; i++))
 do
-	echo "url $url" >> $savefile
+	echo "url ${urls[$i]}" >> $savefile
 done
 
-for term in $terms
+for ((i = 0; i < ${#terms[@]}; i++))
 do
-	echo "term $term" >> $savefile
+	if [[ "${terms[$i]}" == "dir" ]]
+	then
+		terms[$i]="$dir"
+	fi
+	echo "term ${terms[$i]}" >> $savefile
 done
 
-for editor in $editors
+for ((i = 0; i < ${#editors[@]}; i++))
 do
-	echo "editor $editor" >> $savefile
+	if [[ "${editors[$i]}" == "dir" ]]
+	then
+		editors[$i]="$dir"
+	fi
+	echo "editor ${editors[$i]}" >> $savefile
 done
 
-for command in $commands
+for ((i = 0; i < ${#commands[@]}; i++))
 do
-	echo "command $command" >> $savefile
+	echo "command ${commands[$i]}" >> $savefile
 done

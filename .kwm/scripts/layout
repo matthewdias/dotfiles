@@ -1,5 +1,9 @@
 # save/restore layout for current space
 # eg. "layout save"
 kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
-space=$($kwmc query space active)
+space=$($kwmc query space active name)
+if [[ "$space" == "[no tag]" ]]
+then
+	space=$($kwmc query space active id)
+fi
 $kwmc tree $1 $space

@@ -4,7 +4,6 @@ kwmc config split-ratio 0.5
 kwmc config spawn right
 kwmc config lock-to-container on
 kwmc config tiling bsp
-kwmc config space bsp
 kwmc config hotkeys on
 kwmc config spaces-key ctrl
 kwmc config float-non-resizable on
@@ -20,15 +19,15 @@ kwmc config space 0 3 tree 3
 kwmc config space 0 3 name tasks
 kwmc config space 0 4 tree 4
 kwmc config space 0 4 name messages
-kwmc config space 0 5 tree 5
+// kwmc config space 0 5 tree 5
 kwmc config space 0 5 name media
 
-kwmc config focused-border on
-kwmc config focused-border size 3
-kwmc config focused-border color FF7DCBC4
-kwmc config marked-border on
-kwmc config marked-border size 3
-kwmc config marked-border color FFC2E989
+kwmc config border focused on
+kwmc config border focused size 3
+kwmc config border focused color FF7DCBC4
+kwmc config border marked on
+kwmc config border marked size 3
+kwmc config border marked color FFC2E989
 
 include rules
 include binds
