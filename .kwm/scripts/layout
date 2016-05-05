@@ -6,4 +6,22 @@ if [[ "$space" == "[no tag]" ]]
 then
 	space=$($kwmc query space active id)
 fi
-$kwmc tree $1 $space
+
+# get array of windows
+windows=()
+i=0
+while read -r line
+do
+    windows[i]="$line"
+    (( i++ ))
+done <<< "$($kwmc query window list)"
+
+echo $1
+if [[ ${#windows[@]} == '1' ]] && [[ $1 == "save" ]]
+then
+	echo "delete"
+	echo /Users/Matthew/.kwm/layouts/"$space"
+	rm -f /Users/Matthew/.kwm/layouts/"$space"
+else
+	$kwmc tree $1 $space
+fi
