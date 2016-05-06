@@ -24,10 +24,10 @@ kwmc config space 0 5 name media
 
 kwmc config border focused on
 kwmc config border focused size 3
-kwmc config border focused color FF7DCBC4
+kwmc config border focused color 0xFF7DCBC4
 kwmc config border marked on
 kwmc config border marked size 3
-kwmc config border marked color FFC2E989
+kwmc config border marked color 0xFFC2E989
 
 include rules
 include binds

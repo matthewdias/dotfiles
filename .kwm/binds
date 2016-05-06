@@ -42,13 +42,13 @@ kwmc bindsym hyper-, window -c reduce 0.05
 kwmc bindsym hyper-. window -c expand 0.05
 
 kwmc mode resizenorth prefix off
-kwmc mode resizenorth color FFC78EEB
+kwmc mode resizenorth color 0xFFC78EEB
 kwmc mode resizesouth prefix off
-kwmc mode resizesouth color FFC78EEB
+kwmc mode resizesouth color 0xFFC78EEB
 kwmc mode resizeeast prefix off
-kwmc mode resizeeast color FFC78EEB
+kwmc mode resizeeast color 0xFFC78EEB
 kwmc mode resizewest prefix off
-kwmc mode resizewest color FFC78EEB
+kwmc mode resizewest color 0xFFC78EEB
 
 kwmc bindsym cmd+ctrl-up exec resizemode north on
 kwmc bindsym cmd+ctrl-down exec resizemode south on
@@ -106,6 +106,13 @@ kwmc bindsym cmd+alt-left exec move west
 // Manage Layouts
 kwmc bindsym hyper+shift-l exec layout save
 kwmc bindsym hyper-l exec layout restore
+kwmc bindsym cmd+alt-2 tree restore 2up
+kwmc bindsym cmd+alt-3 tree restore 3up
+kwmc bindsym cmd+alt-4 tree restore 4up
+kwmc bindsym cmd+alt-5 tree restore 5up
+kwmc bindsym cmd+alt-6 tree restore 6up
+kwmc bindsym cmd+alt-7 tree restore 7up
+kwmc bindsym cmd+alt-8 tree restore quad
 
 // Move Focused window between spaces (don't follow)
 kwmc bindsym hyper+shift-tab window -m space previous

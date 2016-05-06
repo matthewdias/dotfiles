@@ -6,7 +6,7 @@ then
 	open -na "$app"
 elif [[ $app == *"Sublime Text" ]]
 then
-	subl -n
+	osascript /Users/Matthew/Dropbox/Development/osx/applescripts/sublime_new.applescript
 else
 	open -a "$app"
 fi
