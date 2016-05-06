@@ -2,10 +2,6 @@
 # eg. "layout save"
 kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
 space=$($kwmc query space active name)
-if [[ "$space" == "[no tag]" ]]
-then
-	space=$($kwmc query space active id)
-fi
 
 # get array of windows
 windows=()
@@ -15,9 +11,25 @@ do
     windows[i]="$line"
     (( i++ ))
 done <<< "$($kwmc query window list)"
+num="${#windows[@]}"
 
-echo $1
-if [[ ${#windows[@]} == '1' ]] && [[ $1 == "save" ]]
+if [[ "$space" == "[no tag]" ]]
+then
+	# save/restore id number
+	# space=$($kwmc query space active id)
+	# don't save unnamed space layouts
+	if [[ $1 == "save" ]]
+	then
+		exit
+	fi
+	if [[ $num -gt '1' ]] && [[ $num -lt '8' ]]
+	then
+		$kwmc tree restore $num"up"
+	fi
+	exit
+fi
+
+if [[ $num == '1' ]] && [[ $1 == "save" ]]
 then
 	echo "delete"
 	echo /Users/Matthew/.kwm/layouts/"$space"

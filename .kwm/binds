@@ -6,7 +6,7 @@ define move ~/.kwm/scripts/move
 define pull ~/.kwm/scripts/pull
 define resizemode ~/.kwm/scripts/resizemode
 define openappdir ~/.kwm/scripts/openappdir
-define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit}
+define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit,Byword,iA Writer}
 
 // Manage kwm
 kwmc bindsym hyper-q quit
@@ -106,13 +106,7 @@ kwmc bindsym cmd+alt-left exec move west
 // Manage Layouts
 kwmc bindsym hyper+shift-l exec layout save
 kwmc bindsym hyper-l exec layout restore
-kwmc bindsym cmd+alt-2 tree restore 2up
-kwmc bindsym cmd+alt-3 tree restore 3up
-kwmc bindsym cmd+alt-4 tree restore 4up
-kwmc bindsym cmd+alt-5 tree restore 5up
-kwmc bindsym cmd+alt-6 tree restore 6up
-kwmc bindsym cmd+alt-7 tree restore 7up
-kwmc bindsym cmd+alt-8 tree restore quad
+kwmc bindsym cmd+alt-4 tree restore quad
 
 // Move Focused window between spaces (don't follow)
 kwmc bindsym hyper+shift-tab window -m space previous
