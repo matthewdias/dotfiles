@@ -1,3 +1,10 @@
 dev:~/Dropbox/Development
 kwm:~/Dropbox/Development/osx/kwm
 dotfiles:~/.homesick/repos/dotfiles/home
+sublime:~/Library/Application Support/Sublime Text 3
+android:~/Dropbox/Development/android
+chrome:~/Dropbox/Development/chrome
+electron:~/Dropbox/Development/electron
+ios:~/Dropbox/Development/ios
+osx:~/Dropbox/Development/osx
+web:~/Dropbox/Development/web
