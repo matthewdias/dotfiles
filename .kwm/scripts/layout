@@ -13,15 +13,15 @@ do
 done <<< "$($kwmc query window list)"
 num="${#windows[@]}"
 
-if [[ "$space" == "[no tag]" ]]
+# don't save numbered space layouts
+if [[ "$space" == "[no tag]" ]] && [[ $1 == "save" ]]
 then
-	# save/restore id number
-	# space=$($kwmc query space active id)
-	# don't save unnamed space layouts
-	if [[ $1 == "save" ]]
-	then
-		exit
-	fi
+	exit
+fi
+
+# restore by number of windows
+if [[ "$space" == "[no tag]" ]] || [[ "$space" == "chrome" ]] || [[ "$space" == "media" ]]
+then
 	if [[ $num -gt '1' ]] && [[ $num -lt '8' ]]
 	then
 		$kwmc tree restore $num"up"
@@ -29,8 +29,10 @@ then
 	exit
 fi
 
+# save/restore named spaces
 if [[ $num == '1' ]] && [[ $1 == "save" ]]
 then
+	# delete layouts when saving with 1 window
 	echo "delete"
 	echo /Users/Matthew/.kwm/layouts/"$space"
 	rm -f /Users/Matthew/.kwm/layouts/"$space"
