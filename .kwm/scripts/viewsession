@@ -1,0 +1,3 @@
+kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
+file=/Users/Matthew/.kwm/sessions/$($kwmc query space active name)
+cat $file

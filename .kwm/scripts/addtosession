@@ -1,0 +1,44 @@
+# add an item to session
+# usage: addtosession type "value here"
+# types:
+# app		<app name>	Specify an app to open
+# file		<path>		Open file/folder with default app
+# url		<url>		Open url in default browser
+# term		<path>		Open terminal at directory
+# editor	<path>		Open file/folder with $EDITOR
+# command	<command>	Run commands on session start.
+
+kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
+save=$HOME"/.kwm/sessions/"
+name=$($kwmc query space active name)
+
+type=$1
+target="$2"
+
+savefile=$save$name
+
+# get directory
+if [[ "$type" == "file" ]] || [[ "$type" == "term" ]] || [[ "$type" == "editor" ]]
+then
+	if [[ "$target" == "dir" ]]
+	then
+		if [[ $name == *"chrome" ]] || [[ $name == *"news" ]] || [[ $name == *"tasks" ]] || [[ $name == *"messages" ]] || [[ $name == *"media" ]] || [[ $name == *"[no tag]" ]]
+		then
+			target="/Users/Matthew"
+		else
+			while read -r line
+			do
+		  		for word in $line
+		  		do
+		  			if [[ $word == "dir" ]]
+		    		then
+		    			target=${line[@]:4}
+		    		fi
+		  		done
+			done < /Users/Matthew/.kwm/sessions/$name
+		fi
+	fi
+fi
+
+# write to session config
+echo "$type $target" >> $savefile
