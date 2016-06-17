@@ -20,19 +20,24 @@ for (( i = 0; i < ${#spaces[@]}; i++ ))
 do
 	if [[ ${spaces[$i]} == *"chrome" ]]
 	then
-		bar[$i]='@'
+		bar[$i]='1'
+		# bar[$i]='@'
 	elif [[ ${spaces[$i]} == *"news" ]]
 	then
-		bar[$i]='★'
+		bar[$i]='2'
+		# bar[$i]='★'
 	elif [[ ${spaces[$i]} == *"tasks" ]]
 	then
-		bar[$i]='✔'
+		bar[$i]='3'
+		# bar[$i]='✔'
 	elif [[ ${spaces[$i]} == *"messages" ]]
 	then
-		bar[$i]='#'
+		bar[$i]='4'
+		# bar[$i]='#'
 	elif [[ ${spaces[$i]} == *"media" ]]
 	then
-		bar[$i]='♫'
+		bar[$i]='5'
+		# bar[$i]='♫'
 	elif [[ ${spaces[$i]} == *"[no tag]" ]]
 	then
 		bar[$i]=$(($i+1))
@@ -53,11 +58,11 @@ for (( i = 0; i < ${#bar[@]}; i++ ))
 do
 	if [[ $(($i+1)) == "$active" ]]
 	then
-		bbar[(($i*3+1))]="["${bar[$i]}"]"
+		bbar[(($i*3+1))]="("${bar[$i]}")"
 		# bbar[(($i*3+1))]="\e[30;47m"${bar[$i]}"\e[39;49m"
 	# elif [[ $(($i+1)) == "$previous" ]]
 	# then
-	# 	bbar[(($i*3+1))]="("${bar[$i]}")"
+		# bbar[(($i*3+1))]="("${bar[$i]}")"
 	else
 		bbar[(($i*3+1))]=" ${bar[$i]} "
 	fi
