@@ -143,16 +143,3 @@ kwmc bindsym cmd+alt+shift-7 exec pull 7
 kwmc bindsym cmd+alt+shift-8 exec pull 8
 kwmc bindsym cmd+alt+shift-9 exec pull 9
 kwmc bindsym cmd+alt+shift-0 exec pull 0
-
-// Space switching
-kwmc bindsym hyper-tab space -f previous
-kwmc bindsym hyper-1 space -f 1
-kwmc bindsym hyper-2 space -f 2
-kwmc bindsym hyper-3 space -f 3
-kwmc bindsym hyper-4 space -f 4
-kwmc bindsym hyper-5 space -f 5
-kwmc bindsym hyper-6 space -f 6
-kwmc bindsym hyper-7 space -f 7
-kwmc bindsym hyper-8 space -f 8
-kwmc bindsym hyper-9 space -f 9
-kwmc bindsym hyper-0 space -f 0

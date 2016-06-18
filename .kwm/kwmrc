@@ -10,7 +10,7 @@ kwmc config spaces-key ctrl
 kwmc config float-non-resizable on
 kwmc config focus-follows-mouse off
 kwmc config mouse-follows-focus off
-kwmc config cycle-focus screen
+kwmc config cycle-focus on
 
 // kwmc config space 0 1 tree chrome
 kwmc config space 0 1 name chrome
