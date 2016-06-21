@@ -6,7 +6,7 @@ define move ~/.kwm/scripts/move
 define pull ~/.kwm/scripts/pull
 define resizemode ~/.kwm/scripts/resizemode
 define openappdir ~/.kwm/scripts/openappdir
-define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit,Byword,iA Writer,Steam,Ceceree,Mactracker}
+define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit,Byword,iA Writer,Steam,Ceceree,Mactracker,Mediunic}
 define clonable {Wunderlist}
 
 // Manage kwm

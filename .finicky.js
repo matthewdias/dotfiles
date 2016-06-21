@@ -1,10 +1,14 @@
 finicky.setDefaultBrowser('com.google.Chrome')
 
-// Medium
 finicky.onUrl(function(url, opts) {
-    if (url.match(/^https?:\/\/medium\.com/)) {
-        return {
-            bundleIdentifier: 'br.com.guilhermerambo.Mediunic'
-        }
-    }
+	if(opts.flags.shift == true) {
+
+		// Medium
+	    if (url.match(/^https?:\/\/medium\.com/)) {
+	        return {
+	            bundleIdentifier: 'br.com.guilhermerambo.Mediunic'
+	        }
+	    }
+
+	}
 });
