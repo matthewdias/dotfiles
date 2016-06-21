@@ -18,7 +18,7 @@ done <<< "$($kwmc query space list)"
 bar=()
 for (( i = 0; i < ${#spaces[@]}; i++ ))
 do
-	if [[ ${spaces[$i]} == *"[no tag]" || "$i" -lt 5 ]]
+	if [[ ${spaces[$i]} == *"[no tag]" ]] #|| "$i" -lt 5 ]]
 	then
 		bar[$i]=$(($i+1))
 	else

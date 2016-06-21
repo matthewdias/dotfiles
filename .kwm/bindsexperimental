@@ -1,6 +1,6 @@
 // Experimental space switching
-kwmc bindsym ctrl+shift-left space -fExperimental left
-kwmc bindsym ctrl+shift-right space -fExperimental right
+kwmc bindsym ctrl-left space -fExperimental left
+kwmc bindsym ctrl-right space -fExperimental right
 kwmc bindsym hyper-tab space -fExperimental previous
 kwmc bindsym hyper-1 space -fExperimental 1
 kwmc bindsym hyper-2 space -fExperimental 2

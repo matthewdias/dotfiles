@@ -20,7 +20,7 @@ then
 fi
 
 # restore by number of windows
-if [[ "$space" == "[no tag]" ]] || [[ "$space" == "chrome" ]] || [[ "$space" == "media" ]]
+if [[ "$space" == "[no tag]" ]] || [[ "$space" == "web" ]] || [[ "$space" == "media" ]]
 then
 	if [[ $num -gt '1' ]] && [[ $num -lt '8' ]]
 	then

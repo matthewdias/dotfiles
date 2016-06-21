@@ -12,15 +12,15 @@ kwmc config focus-follows-mouse off
 kwmc config mouse-follows-focus off
 kwmc config cycle-focus on
 
-// kwmc config space 0 1 tree chrome
-kwmc config space 0 1 name chrome
+// kwmc config space 0 1 tree web
+kwmc config space 0 1 name web
 // kwmc config space 0 2 tree news
 // kwmc config space 0 2 tree 5up
 kwmc config space 0 2 name news
 kwmc config space 0 3 tree tasks
 kwmc config space 0 3 name tasks
-kwmc config space 0 4 tree messages
-kwmc config space 0 4 name messages
+kwmc config space 0 4 tree chats
+kwmc config space 0 4 name chats
 // kwmc config space 0 5 tree media
 kwmc config space 0 5 name media
 

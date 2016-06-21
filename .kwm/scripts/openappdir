@@ -2,7 +2,7 @@
 app="$@"
 kwmc=/Users/Matthew/Dropbox/Development/osx/kwm/bin/kwmc
 space=$($kwmc query space active name)
-if [[ $space == *"chrome" ]] || [[ $space == *"news" ]] || [[ $space == *"tasks" ]] || [[ $space == *"messages" ]] || [[ $space == *"media" ]] || [[ $space == *"[no tag]" ]]
+if [[ $space == *"web" ]] || [[ $space == *"news" ]] || [[ $space == *"tasks" ]] || [[ $space == *"chats" ]] || [[ $space == *"media" ]] || [[ $space == *"[no tag]" ]]
 then
 	target="/Users/Matthew"
 else

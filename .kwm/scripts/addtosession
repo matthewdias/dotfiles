@@ -22,7 +22,7 @@ if [[ "$type" == "file" ]] || [[ "$type" == "term" ]] || [[ "$type" == "editor" 
 then
 	if [[ "$target" == "dir" ]]
 	then
-		if [[ $name == *"chrome" ]] || [[ $name == *"news" ]] || [[ $name == *"tasks" ]] || [[ $name == *"messages" ]] || [[ $name == *"media" ]] || [[ $name == *"[no tag]" ]]
+		if [[ $name == *"web" ]] || [[ $name == *"news" ]] || [[ $name == *"tasks" ]] || [[ $name == *"chats" ]] || [[ $name == *"media" ]] || [[ $name == *"[no tag]" ]]
 		then
 			target="/Users/Matthew"
 		else
