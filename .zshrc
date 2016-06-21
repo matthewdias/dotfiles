@@ -4,7 +4,7 @@ ZSH_THEME="sorin"
 
 plugins=(bower brew bundler chucknorris cloudapp colorize common-aliases copydir copyfile docker encode64 extract frontend-search gem git git-extras git_remote_branch github heroku httpie jsontools npm nyan osx pip pj pod python rails rake-fast rvm singlechar sprunge sublime sudo urltools wd web-search xcode)
 
-export PATH="$PATH:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/Users/Matthew/.rvm/gems/ruby-2.1.3/bin:/Users/Matthew/.rvm/gems/ruby-2.1.3@global/bin:/Users/Matthew/.rvm/rubies/ruby-2.1.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/Users/Matthew/.rvm/bin:/Applications/Postgres.app/Contents/Versions/9.4/bin"
+export PATH="$PATH:/opt/local/bin:/opt/local/sbin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/usr/local/bin:/Users/Matthew/.rvm/gems/ruby-2.1.3/bin:/Users/Matthew/.rvm/gems/ruby-2.1.3@global/bin:/Users/Matthew/.rvm/rubies/ruby-2.1.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/go/bin:/Users/Matthew/.rvm/bin:/Applications/Postgres.app/Contents/Versions/latest/bin"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -44,6 +44,7 @@ export PATH="/Users/Matthew/Dropbox/Development/osx/kwm/bin:$PATH"
 export PATH="/Users/Matthew/.kwm/scripts:$PATH"
 export PATH="/Users/Matthew/Documents/adt-bundle-mac-x86_64-20140702/sdk/platform-tools:$PATH"
 export PATH="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:$PATH"
+export PATH="/Users/Matthew/.node/bin:$PATH"
 
 export GITHUB_USER="matthewdias"
 PROJECT_PATHS=(~/Dropbox/Development/osx ~/Dropbox/Development/ios ~/Dropbox/Development/web ~/Dropbox/Development/android ~/Dropbox/Development/chrome ~/Dropbox/Development/electron ~/Dropbox/Development/web/latertube)
