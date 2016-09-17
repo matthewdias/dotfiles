@@ -1,4 +1,7 @@
-kwmc rule properties={role="AXDialog"} owner="iTerm2"
+kwmc rule properties={float="true"} role="AXDialog"
+
+kwmc rule owner="FocusList" properties={role="AXDialog"}
+kwmc rule owner="FocusList" role="AXDialog" properties={float="false"}
 
 kwmc rule properties={float="true"} owner="App Store"
 kwmc rule properties={float="true"} owner="System Preferences"
@@ -18,14 +21,15 @@ kwmc rule properties={float="true"} owner="VLC"
 
 kwmc rule properties={float="true"} name="Preferences"
 
-// kwmc rule properties={space="2"} owner="Reeder"
-// kwmc rule properties={space="3"} owner="Wunderlist"
+kwmc rule properties={space="2"} owner="Reeder"
+kwmc rule properties={space="3"} owner="Wunderlist"
+kwmc rule properties={space="3"} owner="FocusList"
+kwmc rule properties={space="3"} owner="Google Keep"
 kwmc rule properties={space="3"} owner="Boxy"
 kwmc rule properties={space="4"} owner="Slack"
-kwmc rule properties={space="4"} owner="Goofy"
-kwmc rule properties={space="4"} owner="Chatty"
-kwmc rule properties={space="4"} owner="Messenger"
-// kwmc rule properties={space="5"} owner="Plex"
+kwmc rule properties={space="4"} owner="Discord"
+kwmc rule properties={space="4"} owner="Messenger for Desktop"
+kwmc rule properties={space="5"} owner="YouTube"
+kwmc rule properties={space="5"} owner="Pocket Casts"
+kwmc rule properties={space="5"} owner="Plex"
 kwmc rule properties={space="5"} owner="Radiant Player"
-// kwmc rule properties={space="2"} owner="Pocket Casts"
-// kwmc rule properties={space="2"} owner="YouTube"

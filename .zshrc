@@ -26,11 +26,46 @@ alias dus="duf | sort -n"
 alias sz="source ~/.zshrc"
 alias d="dirs -v"
 alias -g S="| subl -"
+transfer() {
+    if [ $# -eq 0 ];
+    then
+        echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
+        return 1
+    fi
+    tmpfile=$( mktemp -t transferXXX )
+    file=$1
+    if tty -s;
+    then
+        basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
+        if [ ! -e $file ];
+        then
+            echo "File $file doesn't exists."
+            return 1
+        fi
+        if [ -d $file ];
+        then
+            zipfile=$( mktemp -t transferXXX.zip )
+            cd $(dirname $file) && zip -r -q - $(basename $file) >> $zipfile
+            curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
+            rm -f $zipfile
+        else
+            curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
+        fi
+    else
+        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
+    fi
+    cat $tmpfile
+    rm -f $tmpfile
+}
 trash() {
 	mv $1 ~/.Trash/
 }
 v() {
 	vmd $1 &
+}
+
+m() {
+	/Applications/Moeditor.app/Contents/MacOS/Moeditor $1 &
 }
 
 eval "$(hub alias -s)"
@@ -45,6 +80,7 @@ export PATH="/Users/Matthew/.kwm/scripts:$PATH"
 export PATH="/Users/Matthew/Documents/adt-bundle-mac-x86_64-20140702/sdk/platform-tools:$PATH"
 export PATH="/Applications/Sublime\ Text.app/Contents/SharedSupport/bin:$PATH"
 export PATH="/Users/Matthew/.node/bin:$PATH"
+export PATH="/Users/Matthew/.miniconda2/bin:$PATH"
 
 export GITHUB_USER="matthewdias"
 PROJECT_PATHS=(~/Dropbox/Development/osx ~/Dropbox/Development/ios ~/Dropbox/Development/web ~/Dropbox/Development/android ~/Dropbox/Development/chrome ~/Dropbox/Development/electron ~/Dropbox/Development/web/latertube)

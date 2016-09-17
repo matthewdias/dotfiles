@@ -6,8 +6,8 @@ define move ~/.kwm/scripts/move
 define pull ~/.kwm/scripts/pull
 define resizemode ~/.kwm/scripts/resizemode
 define openappdir ~/.kwm/scripts/openappdir
-define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit,Byword,iA Writer,Steam,Ceceree,Mactracker,Mediunic}
-define clonable {Wunderlist}
+define stubborn {Simplenote,Preview,TextEdit,Microsoft Word,MindNode,Snapper,Transmit,Byword,iA Writer,Steam,Ceceree,Mactracker,iBooks,Mediunic}
+define clonable {Wunderlist,Reeder}
 
 // Manage kwm
 kwmc bindsym hyper-q quit
@@ -20,12 +20,13 @@ kwmc bindsym hyper-return exec openappdir Terminal
 kwmc bindsym hyper-t exec openappdir Sublime Text
 kwmc bindsym hyper-c exec openappdir Google Chrome
 kwmc bindsym hyper-o exec openappdir Finder
-kwmc bindsym hyper-n exec osascript ~/Dropbox/Development/osx/applescripts/window_new.applescript clonable -i
+kwmc bindsym hyper-n exec osascript ~/Dropbox/Development/osx/applescripts/typora_new.applescript
+kwmc bindsym cmd+alt-n exec osascript ~/Dropbox/Development/osx/applescripts/window_new.applescript clonable -i
 kwmc bindsym hyper+shift-p exec osascript ~/Dropbox/Development/osx/applescripts/pomodoro.applescript
 kwmc bindsym hyper-z exec subl -n ~/.zshrc
 
 // Quit stubborn apps
-kwmc bindsym_passthrough cmd-w press cmd+alt-q stubborn -i
+// kwmc bindsym_passthrough cmd-w press cmd+alt-q stubborn -i
 
 // Tiling mode
 kwmc bindsym hyper-b space -t bsp
@@ -40,41 +41,27 @@ kwmc bindsym hyper-r tree rotate 90
 
 // Resize modes
 kwmc bindsym hyper-s window -c split-mode toggle
-kwmc bindsym hyper-, window -c reduce 0.05
-kwmc bindsym hyper-. window -c expand 0.05
 
-kwmc mode resizenorth prefix off
-kwmc mode resizenorth color 0xFFC78EEB
-kwmc mode resizesouth prefix off
-kwmc mode resizesouth color 0xFFC78EEB
-kwmc mode resizeeast prefix off
-kwmc mode resizeeast color 0xFFC78EEB
-kwmc mode resizewest prefix off
-kwmc mode resizewest color 0xFFC78EEB
+kwmc bindsym cmd+ctrl-up window -c expand 0.05 north
+kwmc bindsym cmd+ctrl-down window -c expand 0.05 south
+kwmc bindsym cmd+ctrl-right window -c expand 0.05 east
+kwmc bindsym cmd+ctrl-left window -c expand 0.05 west
 
-kwmc bindsym cmd+ctrl-up exec resizemode north on
-kwmc bindsym cmd+ctrl-down exec resizemode south on
-kwmc bindsym cmd+ctrl-right exec resizemode east on
-kwmc bindsym cmd+ctrl-left exec resizemode west on
-
-kwmc bindsym resizenorth-escape exec resizemode north off
-kwmc bindsym resizesouth-escape exec resizemode south off
-kwmc bindsym resizeeast-escape exec resizemode east off
-kwmc bindsym resizewest-escape exec resizemode west off
-
-kwmc bindsym resizenorth-. window -c expand 0.05 north
-kwmc bindsym resizenorth-, window -c reduce 0.05 north
-kwmc bindsym resizesouth-. window -c expand 0.05 south
-kwmc bindsym resizesouth-, window -c reduce 0.05 south
-kwmc bindsym resizeeast-. window -c expand 0.05 east
-kwmc bindsym resizeeast-, window -c reduce 0.05 east
-kwmc bindsym resizewest-. window -c expand 0.05 west
-kwmc bindsym resizewest-, window -c reduce 0.05 west
+kwmc bindsym cmd+ctrl+shift-up window -c reduce 0.05 north
+kwmc bindsym cmd+ctrl+shift-down window -c reduce 0.05 south
+kwmc bindsym cmd+ctrl+shift-right window -c reduce 0.05 east
+kwmc bindsym cmd+ctrl+shift-left window -c reduce 0.05 west
 
 // Set zoom
 kwmc bindsym hyper-x window -z fullscreen
 kwmc bindsym hyper-p window -z parent
 kwmc bindsym hyper-w window -t focused
+
+// Scratchpad
+kwmc bindsym hyper-h scratchpad add
+kwmc bindsym hyper+shift-h scratchpad remove
+kwmc bindsym hyper+shift-w scratchpad toggle 0
+kwmc bindsym hyper+shift-s scratchpad toggle 1
 
 // Mark Window
 kwmc bindsym hyper-m window -mk focused

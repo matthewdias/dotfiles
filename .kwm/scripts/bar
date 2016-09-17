@@ -24,11 +24,12 @@ do
 	else
 		if [[ "$i" == "9" ]]
 		then
-			id="${spaces[$i]:4:1}"
+			id="${spaces[$i]:4}"
 		else
-			id="${spaces[$i]:3:1}"
+			id="${spaces[$i]:3}"
 		fi
-		bar[$i]="$(echo $id | tr '[:lower:]' '[:upper:]')"
+		# bar[$i]="$(echo $id | tr '[:lower:]' '[:upper:]')"
+		bar[$i]="$[$i+1]/$id"
 	fi
 done
 
