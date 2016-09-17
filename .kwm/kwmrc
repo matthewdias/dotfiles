@@ -12,7 +12,7 @@ kwmc config center-on-float on
 kwmc config focus-follows-mouse off
 kwmc config mouse-follows-focus off
 kwmc config mouse-drag on
-kwmc config mouse-drag mod shift
+kwmc config mouse-drag mod cmd+ctrl+alt
 kwmc config cycle-focus on
 
 // kwmc config space 0 1 tree web
