@@ -57,12 +57,6 @@ kwmc bindsym hyper-x window -z fullscreen
 kwmc bindsym hyper-p window -z parent
 kwmc bindsym hyper-w window -t focused
 
-// Scratchpad
-kwmc bindsym hyper-h scratchpad add
-kwmc bindsym hyper+shift-h scratchpad remove
-kwmc bindsym hyper+shift-w scratchpad toggle 0
-kwmc bindsym hyper+shift-s scratchpad toggle 1
-
 // Mark Window
 kwmc bindsym hyper-m window -mk focused
 
