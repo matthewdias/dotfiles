@@ -1,0 +1,146 @@
+# Enable kwm compatibility
+khd kwm on
+
+# Manage config
+rctrl - h			: subl -n /Users/Matthew/.khdrc
+rctrl + shift - h 	: khd -e "reload"
+
+# Manage kwm
+rctrl - q 			: kwmc quit
+rctrl + shift - r 	: kwmc config reload
+rctrl - e 			: kwmc space -r focused
+rctrl - k 			: subl -n /Users/Matthew/.kwm
+
+# Launcher
+rctrl - return 		: /Users/Matthew/.kwm/scripts/openappdir Terminal
+rctrl - t 			: /Users/Matthew/.kwm/scripts/openappdir Sublime Text
+rctrl - c 			: /Users/Matthew/.kwm/scripts/openappdir Google Chrome
+rctrl - o 			: /Users/Matthew/.kwm/scripts/openappdir Finder
+rctrl - n 			: osascript /Users/Matthew/Dropbox/Development/osx/applescripts/typora_new.applescript
+rctrl + shift - p 	: osascript /Users/Matthew/Dropbox/Development/osx/applescripts/pomodoro.applescript
+rctrl - z 			: subl -n /Users/Matthew/.zshrc
+
+# Duplicate compatible apps
+# cmd + alt - n [
+	# Wunderlist
+# ] : osascript /Users/Matthew/Dropbox/Development/osx/applescripts/window_new.applescript
+
+# Quit stubborn apps
+# cmd - w [
+# 	Simplenote,
+# 	Preview,
+# 	TextEdit,
+# 	Microsoft Word,
+# 	MindNode,
+# 	Snapper,
+# 	Transmit,
+# 	Byword,
+# 	iA Writer,
+# 	Steam,
+# 	Ceceree,
+# 	Mactracker,
+# 	iBooks,
+# 	Mediunic
+# ] -> : khd -p "cmd + alt - q"
+
+# Tiling mode
+rctrl - b : kwmc space -t bsp
+rctrl - f : kwmc space -t monocle
+rctrl - d : kwmc space -t float
+
+# Toggle node mode
+rctrl - v : kwmc window -c type toggle
+
+# Rotate Window-Tree By 90* (Clockwise)
+rctrl - r : kwmc tree rotate 90
+
+# Change split-mode
+rctrl - s : kwmc window -c split-mode toggle
+
+# Resizing
+rctrl - 0x2B : kwmc window -c reduce 0.05 focused
+rctrl - 0x2F : kwmc window -c expand 0.05 focused
+
+cmd + ctrl - up 	: kwmc window -c expand 0.05 north
+cmd + ctrl - down 	: kwmc window -c expand 0.05 south
+cmd + ctrl - right 	: kwmc window -c expand 0.05 east
+cmd + ctrl - left 	: kwmc window -c expand 0.05 west
+
+cmd + ctrl + shift - up		: kwmc window -c reduce 0.05 north
+cmd + ctrl + shift - down	: kwmc window -c reduce 0.05 south
+cmd + ctrl + shift - right	: kwmc window -c reduce 0.05 east
+cmd + ctrl + shift - left	: kwmc window -c reduce 0.05 west
+
+# Set zoom
+rctrl - x : kwmc window -z fullscreen
+rctrl - p : kwmc window -z parent
+rctrl - w : kwmc window -t focused
+
+# Mark Window
+rctrl - m : kwmc window -mk focused
+
+# Pseudo nodes
+rctrl - y 			: kwmc tree -pseudo create
+rctrl + shift - y 	: kwmc tree -pseudo destroy
+
+# Give Focus To Window
+rctrl - left 	: kwmc window -f west
+rctrl - right 	: kwmc window -f east
+rctrl - down 	: kwmc window -f south
+rctrl - up 		: kwmc window -f north
+
+# Focus next/previous monocle sub-tree
+cmd + ctrl - tab 			: kwmc window -fm next
+cmd + ctrl + shift - tab 	: kwmc window -fm prev
+
+# Swap Focused Window in direction
+rctrl + shift - left 	: kwmc window -s west
+rctrl + shift - down 	: kwmc window -s south
+rctrl + shift - up 		: kwmc window -s north
+rctrl + shift - right 	: kwmc window -s east
+
+# Move window to container in direction
+cmd + alt - up 		: /Users/Matthew/.kwm/scripts/move north
+cmd + alt - right 	: /Users/Matthew/.kwm/scripts/move east
+cmd + alt - down 	: /Users/Matthew/.kwm/scripts/move south
+cmd + alt - left 	: /Users/Matthew/.kwm/scripts/move west
+
+# Manage Layouts
+rctrl + shift - l 	: /Users/Matthew/.kwm/scripts/layout save
+rctrl - l 			: /Users/Matthew/.kwm/scripts/layout restore
+
+cmd + alt - 2 : kmwc tree restore 2up
+cmd + alt - 3 : kmwc tree restore 3up
+cmd + alt - 4 : kmwc tree restore 4up
+cmd + alt - 5 : kmwc tree restore 5up
+cmd + alt - 6 : kmwc tree restore 6up
+cmd + alt - 7 : kmwc tree restore 7up
+cmd + alt - 8 : kmwc tree restore quad
+
+# Move Focused window between spaces (don't follow)
+rctrl + shift - tab : kwmc window -m space previous
+rctrl + shift - 1 	: kwmc window -m space 1
+rctrl + shift - 2 	: kwmc window -m space 2
+rctrl + shift - 3 	: kwmc window -m space 3
+rctrl + shift - 4 	: kwmc window -m space 4
+rctrl + shift - 5 	: kwmc window -m space 5
+rctrl + shift - 6 	: kwmc window -m space 6
+rctrl + shift - 7 	: kwmc window -m space 7
+rctrl + shift - 8 	: kwmc window -m space 8
+rctrl + shift - 9 	: kwmc window -m space 9
+rctrl + shift - 0 	: kwmc window -m space 10
+
+# Move Focused window between spaces (follow)
+cmd + alt + shift - left 	: /Users/Matthew/.kwm/scripts/pull left
+cmd + alt + shift - right 	: /Users/Matthew/.kwm/scripts/pull right
+cmd + alt + shift - tab 	: /Users/Matthew/.kwm/scripts/pull previous
+cmd + alt + shift - 1 		: /Users/Matthew/.kwm/scripts/pull 1
+cmd + alt + shift - 2 		: /Users/Matthew/.kwm/scripts/pull 2
+cmd + alt + shift - 3 		: /Users/Matthew/.kwm/scripts/pull 3
+cmd + alt + shift - 4 		: /Users/Matthew/.kwm/scripts/pull 4
+cmd + alt + shift - 5 		: /Users/Matthew/.kwm/scripts/pull 5
+cmd + alt + shift - 6 		: /Users/Matthew/.kwm/scripts/pull 6
+cmd + alt + shift - 7 		: /Users/Matthew/.kwm/scripts/pull 7
+cmd + alt + shift - 8 		: /Users/Matthew/.kwm/scripts/pull 8
+cmd + alt + shift - 9 		: /Users/Matthew/.kwm/scripts/pull 9
+cmd + alt + shift - 0 		: /Users/Matthew/.kwm/scripts/pull 0

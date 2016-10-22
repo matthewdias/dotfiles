@@ -11,11 +11,18 @@ finicky.onUrl(function (url, opts) {
   }
 
   // Video
-  if (url.match(/\w*.webm\b/)) {
+  if (url.match(/\w*.webm\b/) || url.match(/\w*.mp4\b/)) {
   	return {
-  		bundleIdentifier: 'org.videolan.vlc'
+  		bundleIdentifier: 'br.com.guilhermerambo.VLCX'
   	}
   }
+
+  // Maps
+  // if (url.match(/^https?:\/\/maps\.google\.com/) || url.match(/^https?:\/\/google\.com\/maps/)) {
+  //   return {
+  //     bundleIdentifier: 'com.electron.google-maps'
+  //   }
+  // }
 
 // }
 })

@@ -6,16 +6,15 @@ kwmc config optimal-ratio 1.382
 kwmc config spawn right
 kwmc config lock-to-container off
 kwmc config tiling bsp
-kwmc config hotkeys on
 kwmc config float-non-resizable on
 kwmc config center-on-float on
 kwmc config focus-follows-mouse off
 kwmc config mouse-follows-focus off
-kwmc config mouse-drag on
-kwmc config mouse-drag mod cmd+ctrl+alt
+# kwmc config mouse-drag on
+# kwmc config mouse-drag mod rctrl
 kwmc config cycle-focus on
 
-// kwmc config space 0 1 tree web
+# kwmc config space 0 1 tree web
 kwmc config space 0 1 name web
 kwmc config space 0 2 tree news
 kwmc config space 0 2 name news
@@ -23,15 +22,16 @@ kwmc config space 0 3 tree tasks
 kwmc config space 0 3 name tasks
 kwmc config space 0 4 tree chats
 kwmc config space 0 4 name chats
-// kwmc config space 0 5 tree media
+# kwmc config space 0 5 tree media
 kwmc config space 0 5 name media
 
 kwmc config border focused on
 kwmc config border focused size 3
 kwmc config border focused color 0xFF7DCBC4
+kwmc config border focused radius 7
 kwmc config border marked on
 kwmc config border marked size 3
 kwmc config border marked color 0xFFC68DF0
+kwmc config border marked radius 7
 
 include rules
-include binds
