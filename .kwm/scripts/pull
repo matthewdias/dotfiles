@@ -12,5 +12,4 @@ else
     $kwmc window -m space $dir
 fi
 sleep 0.5
-$kwmc space -f $dir
 $kwmc window -f "$current"
