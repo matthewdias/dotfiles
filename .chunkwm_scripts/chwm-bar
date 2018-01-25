@@ -1,0 +1,19 @@
+chunkc=/usr/local/bin/chunkc
+active=$($chunkc tiling::query -d id)
+
+bar=()
+for (( i = 0; i < 10; i++ )) do
+  bar[$i]=$(($i + 1))
+done
+
+bbar=()
+for (( i = 0; i < ${#bar[@]}; i++ )) do
+  if [[ $(($i + 1)) == "$active" ]]
+  then
+    bbar[(($i * 3 + 1))]="("${bar[$i]}")"
+  else
+    bbar[(($i * 3 + 1))]=" ${bar[$i]} "
+  fi
+done
+
+echo "$($chunkc tiling::query -d mode)   ${bbar[*]}"

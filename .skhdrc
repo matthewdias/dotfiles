@@ -1,1 +1,101 @@
-/Users/Matthew/.skhdrc
+# Launcher
+rctrl - return                  : open -a Terminal /Users/Matthew
+rctrl - t                       : atom -n
+rctrl - c                       : /Users/Matthew/.kwm/scripts/openapp Google Chrome
+rctrl - o                       : open -a Finder /Users/Matthew
+rctrl - n                       : osascript /Users/Matthew/Dropbox/Development/osx/applescripts/typora_new.applescript
+rctrl + shift - p               : osascript /Users/Matthew/Dropbox/Development/osx/applescripts/pomodoro.applescript
+rctrl + shift - z               : atom -n /Users/Matthew/.zshrc
+rctrl + shift - c               : atom -n /Users/Matthew/.chunkwmrc
+rctrl + shift - s               : atom -n /Users/Matthew/.skhdrc
+
+# Restart chunkwm
+rctrl + shift - r               : killall chunkwm
+
+# Disable borders for screenshot
+cmd + shift - 4 -> : chunkc border::clear
+
+# Tiling mode
+rctrl - b : chunkc tiling::desktop -l bsp
+rctrl - f : chunkc tiling::desktop -l monocle
+rctrl - d : chunkc tiling::desktop -l float
+
+# Rotate Window-Tree By 90* (Clockwise)
+rctrl - r : chunkc tiling::desktop -r 90
+
+# Resizing
+alt + ctrl - up 	  : chunkc tiling::window -r 0.05 -e north
+alt + ctrl - down 	: chunkc tiling::window -r 0.05 -e south
+alt + ctrl - right 	: chunkc tiling::window -r 0.05 -e east
+alt + ctrl - left 	: chunkc tiling::window -r 0.05 -e west
+
+alt + ctrl + shift - up		  : chunkc tiling::window -r -0.05 -e north
+alt + ctrl + shift - down	  : chunkc tiling::window -r -0.05 -e south
+alt + ctrl + shift - right  : chunkc tiling::window -r -0.05 -e east
+alt + ctrl + shift - left	  : chunkc tiling::window -r -0.05 -e west
+
+rctrl - e : chunkc tiling::desktop -e
+
+# Toggle window options
+rctrl + shift - f : chunkc tiling::window -t native-fullscreen
+rctrl - x         : chunkc tiling::window -t fullscreen
+rctrl - p         : chunkc tiling::window -t parent
+rctrl - s         : chunkc tiling::window -t split
+rctrl - w         : chunkc tiling::window -t float; chunkc tiling::window --grid-layout 8:8:1:1:6:6
+rctrl - v         : chunkc tiling::window -t sticky
+
+# Give Focus To Window
+rctrl - left 	: chunkc tiling::window -f west
+rctrl - right : chunkc tiling::window -f east
+rctrl - down 	: chunkc tiling::window -f south
+rctrl - up 		: chunkc tiling::window -f north
+rctrl - space : chunkc tiling::window -f biggest
+
+# Swap Focused Window in direction
+rctrl + shift - left 	: chunkc tiling::window -s west
+rctrl + shift - down 	: chunkc tiling::window -s south
+rctrl + shift - up 		: chunkc tiling::window -s north
+rctrl + shift - right : chunkc tiling::window -s east
+rctrl + shift - space : chunkc tiling::window -s biggest
+
+# Move window to container in direction
+cmd + alt - up 		: chunkc tiling::window -w north
+cmd + alt - right : chunkc tiling::window -w east
+cmd + alt - down 	: chunkc tiling::window -w south
+cmd + alt - left 	: chunkc tiling::window -w west
+cmd + alt - space : chunkc tiling::window -w biggest
+
+# Manage Layouts
+alt + ctrl - 2 : chunkc tiling::desktop --deserialize /Users/Matthew/.chunkwm_layouts/2up
+alt + ctrl - 3 : chunkc tiling::desktop --deserialize /Users/Matthew/.chunkwm_layouts/3up
+alt + ctrl - 4 : chunkc tiling::desktop --deserialize /Users/Matthew/.chunkwm_layouts/4up
+alt + ctrl - 5 : chunkc tiling::desktop --deserialize /Users/Matthew/.chunkwm_layouts/5up
+# alt + ctrl - 6 : kmwc tree restore 6up
+# alt + ctrl - 7 : kmwc tree restore 7up
+# alt + ctrl - 8 : kmwc tree restore quad
+
+# Move Focused window between spaces (don't follow)
+cmd + alt - tab : chunkc tiling::window -d $(chunkc get _last_active_desktop)
+cmd + alt - 1 	: chunkc tiling::window -d 1
+cmd + alt - 2 	: chunkc tiling::window -d 2
+cmd + alt - 3 	: chunkc tiling::window -d 3
+cmd + alt - 4 	: chunkc tiling::window -d 4
+cmd + alt - 5 	: chunkc tiling::window -d 5
+cmd + alt - 6 	: chunkc tiling::window -d 6
+cmd + alt - 7 	: chunkc tiling::window -d 7
+cmd + alt - 8 	: chunkc tiling::window -d 8
+cmd + alt - 9 	: chunkc tiling::window -d 9
+cmd + alt - 0 	: chunkc tiling::window -d 10
+
+cmd + alt + shift - left 	: chunkc tiling::window -d prev; sleep 1; qes -k "ctrl - left"
+cmd + alt + shift - right : chunkc tiling::window -d next; sleep 1; qes -k "ctrl - right"
+cmd + alt + shift - 1     : chunkc tiling::window -d 1;    sleep 1; qes -k "ctrl - 1"
+cmd + alt + shift - 2     : chunkc tiling::window -d 2;    sleep 1; qes -k "ctrl - 2"
+cmd + alt + shift - 3     : chunkc tiling::window -d 3;    sleep 1; qes -k "ctrl - 3"
+cmd + alt + shift - 4     : chunkc tiling::window -d 4;    sleep 1; qes -k "ctrl - 4"
+cmd + alt + shift - 5     : chunkc tiling::window -d 5;    sleep 1; qes -k "ctrl - 5"
+cmd + alt + shift - 6     : chunkc tiling::window -d 6;    sleep 1; qes -k "ctrl - 6"
+cmd + alt + shift - 7     : chunkc tiling::window -d 7;    sleep 1; qes -k "ctrl - 7"
+cmd + alt + shift - 8     : chunkc tiling::window -d 8;    sleep 1; qes -k "ctrl - 8"
+cmd + alt + shift - 9     : chunkc tiling::window -d 9;    sleep 1; qes -k "ctrl - 9"
+cmd + alt + shift - 0     : chunkc tiling::window -d 10;   sleep 1; qes -k "ctrl - 0"
