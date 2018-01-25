@@ -18,7 +18,6 @@ kwmc rule properties={float="true"} owner="qemu-system-x86_64"
 kwmc rule properties={float="true"} owner="Snapper"
 kwmc rule properties={float="true"} owner="Playback"
 kwmc rule properties={float="true"} owner="VLC"
-kwmc rule properties={float="true"} owner="Kap"
 
 kwmc rule properties={float="true"} name="Preferences"
 

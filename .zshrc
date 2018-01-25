@@ -6,6 +6,7 @@ plugins=(bower brew bundler chucknorris cloudapp colorize common-aliases copydir
 
 source $ZSH/oh-my-zsh.sh
 
+export PATH="$PATH:/Users/Matthew/.rvm/gems/ruby-2.3.0/bin"
 export PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$PATH:/opt/X11/bin"
 export PATH="$PATH:/Library/Frameworks/Python.framework/Versions/3.5/bin"
@@ -25,15 +26,16 @@ export GITHUB_USER="matthewdias"
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='subl'
+  export EDITOR='atom'
 fi
 
 BASE16_SHELL="$HOME/.config/base16-shell/base16-material.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+[ -f /Users/Matthew/.travis/travis.sh ] && source /Users/Matthew/.travis/travis.sh
+export ANDROID_HOME='/Users/Matthew/Documents/adt-bundle-mac-x86_64-20140702'
 
-PROJECT_PATHS=(~/Dropbox/Development/osx ~/Dropbox/Development/ios ~/Dropbox/Development/web ~/Dropbox/Development/android ~/Dropbox/Development/chrome ~/Dropbox/Development/electron ~/Dropbox/Development/latertube, ~/Dropbox/Development/consume, ~/Dropbox/Development/freak, ~/Dropbox/Development/kitsu)
+PROJECT_PATHS=(~/Dropbox/Development/osx ~/Dropbox/Development/ios ~/Dropbox/Development/web ~/Dropbox/Development/android ~/Dropbox/Development/chrome ~/Dropbox/Development/electron ~/Dropbox/Development/latertube, ~/Dropbox/Development/consume, ~/Dropbox/Development/freak, ~/Dropbox/Development/kitsu, ~/Dropbox/Development/java)
 
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --remote-debugging-port=9222"
@@ -41,11 +43,15 @@ alias nwjs="/Applications/nwjs.app/Contents/MacOS/nwjs"
 alias finder="open -R"
 alias s="subl"
 alias sn="subl -n"
+alias a="atom"
+alias an="atom -n"
+alias aa="atom -a"
 alias dus="duf | sort -n"
 alias sz="source ~/.zshrc"
 alias d="dirs -v"
 alias -g S="| subl -n"
 alias mac="m"
+alias q="qlmanage -p"
 trash() {
 	mv $1 ~/.Trash/
 }
@@ -56,4 +62,5 @@ moe() {
 	/Applications/Moeditor.app/Contents/MacOS/Moeditor $1 &
 }
 eval "$(hub alias -s)"
+eval "$(pyenv init -)"
 eval "$(thefuck --alias)"

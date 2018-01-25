@@ -1,7 +1,6 @@
 finicky.setDefaultBrowser('com.google.Chrome')
 
 finicky.onUrl(function (url, opts) {
-  // if(opts.flags.shift == true) {
 
   // Medium
   if (url.match(/^https?:\/\/medium\.com/)) {
@@ -10,10 +9,13 @@ finicky.onUrl(function (url, opts) {
     }
   }
 
-  // Video
-  if (url.match(/\w*.webm\b/) || url.match(/\w*.mp4\b/)) {
+  // A/V
+  if (url.match(/\w*.webm\b/) || url.match(/\w*.mp4\b/) || url.match(/\w*.mp3\b/) ||
+      url.match(/^https?:\/\/www\.youtube\.com\/watch/) ||
+      url.match(/^https?:\/\/www\.youtu\.be/)) {
   	return {
-  		bundleIdentifier: 'br.com.guilhermerambo.VLCX'
+      bundleIdentifier: 'com.colliderli.iina',
+      url: 'iina://weblink?url=' + encodeURI(url)
   	}
   }
 
@@ -24,5 +26,10 @@ finicky.onUrl(function (url, opts) {
   //   }
   // }
 
-// }
+  // Trello
+  // if (url.match(/^https?:\/\/trello\.com/)) {
+  //   return {
+  //     bundleIdentifier: 'com.atlassian.trello'
+  //   }
+  // }
 })
